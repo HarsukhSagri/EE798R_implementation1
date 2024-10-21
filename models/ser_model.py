@@ -32,7 +32,7 @@ class Ser_Model(nn.Module):
         self.post_spec_mfcc_att_layer = nn.Linear(256, 149) # 9216 for cnn, 32768 for ltsm s, 65536 for lstm l
                         
         # WAV2VEC 2.0
-        self.wav2vec2_model = Wav2Vec2Model.from_pretrained("/home/heqing001/Coding/SER_0915/features_extraction/pretrained_model/wav2vec2-base-960h")
+        self.wav2vec2_model = Wav2Vec2Model.from_pretrained("facebook/wav2vec2-base-960h")
 
         self.post_wav_dropout = nn.Dropout(p=0.1)
         self.post_wav_layer = nn.Linear(768, 128) # 512 for 1 and 768 for 2

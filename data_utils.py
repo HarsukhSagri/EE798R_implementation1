@@ -11,6 +11,7 @@ import random
 from PIL import Image, ImageOps
 import matplotlib.pyplot as plt
 from collections import defaultdict
+np.long=np.int64
 
 SCALER_TYPE = {'standard':'preprocessing.StandardScaler()',
                'minmax'  :'preprocessing.MinMaxScaler(feature_range=(0,1))'

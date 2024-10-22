@@ -1,55 +1,38 @@
+# EE798R - Speech Emotion Recognition with Co-Attention Based Multi-level Acoustic Information
 
-# CA-MSER
-Code for [Speech Emotion Recognition with Co-Attention based Multi-level Acoustic Information](https://arxiv.org/abs/2203.15326) (ICASSP 2022)
-
-## NEW Update
-The code for data processing is available online now. It can be downloaded and used as a reference.
-<br>
-If you think our paper and code are useful for your research work. Please give us a star or cite our original paper. This will give us the motivation to continue to share our code. 
+This repository contains the implementation of Speech Emotion Recognition (SER) using multi-level acoustic features, including MFCC, spectrogram, and wav2vec2 (W2E) embeddings, with a co-attention mechanism. The project is part of the EE798R coursework, building on the research presented in the paper [Speech Emotion Recognition with Co-Attention Based Multi-Level Acoustic Information](https://arxiv.org/abs/2203.15326).
 
 ## 1. File system
-\- models
-<br> &ensp;  -- transformers_encoder
-<br> &ensp;  -- related python files
-<br>
-\- results
-<br> &ensp;  -- t-SNE
-<br>
-\- extracted_features.pkl
-<br>
-\- crossval_SER.py
-<br>
-\- train_ser.py
-<br>
-\- data_utils.py
-<br>
-\- requirements.txt
+- `models/`
+  - Contains various model-related files, including the co-attention module.
+- `results/`
+  - Includes visualizations such as t-SNE plots.
+- `extracted_features.pkl`
+  - Pickled file containing pre-extracted features.
+- `crossval_SER.py`
+  - Script for performing cross-validation experiments.
+- `train_ser.py`
+  - Training script for SER.
+- `data_utils.py`
+  - Utility functions for data loading and processing.
+- `main_code/`
+  - Contains the .ipynb which needs to be run to train the model and then display the result for cross-validation strategies.
+- `description_pdf.pdf`
+  - Contains the description of how the implementation is done and is a comprehensive report.
+- `requirements.txt`
+  - Dependencies for running the project.
 
-## 2. Environmet
-- PyTorch version:  1.8.0
-- CUDA version:  11.1
-- cudnn version:  8005
-- GPU:  Tesla V100-SXM2-32GB
+## 2. Environment
+- **Python version**:  3.10
+- **PyTorch**
+- **CUDA**
+- **cudnn**
+- **GPU**
 
-## 3. How to use
- 1. Download the pretrained Wav2vec2.0 model from https://huggingface.co/facebook/wav2vec2-base-960h
- 2. Download the processed data. (It is a little big, later we will delete it from Google Drive)
- [Google Drive](https://drive.google.com/file/d/1Nnxh3y7hkkmsh3Y5Dg4q1qerRZWcePH8/view?usp=sharing); 
- [Baidu YunPan](https://pan.baidu.com/s/1MmmTrJ6nwQvlUiEWlDQhSw?pwd=q9gd)
-
- 4. Install related libraries. pip install requirements.txt
- 5. Run. python crossval_SER.py
-
-### citation
-If you use our code or find our CA-MSER useful in your research, please consider citing:
-
-    @inproceedings{zou2022speech,
-        title={Speech Emotion Recognition with Co-Attention Based Multi-Level Acoustic Information},
-        author={Zou, Heqing and Si, Yuke and Chen, Chen and Rajan, Deepu and Chng, Eng Siong},
-        booktitle={ICASSP 2022-2022 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
-        pages={7367--7371},
-        year={2022},
-        organization={IEEE}
-    }
-
-
+## 3. How to Use
+1. Download the processed data (dataset) from:
+   - [Google Drive](https://drive.google.com/drive/folders/1SsxMib2NoKVvoTspe-XDF-2NC7PNEpMw?usp=sharing)
+2. Install dependencies by running:
+   ```bash
+   pip install -r requirements.txt
+3. Run the files in [main_code](https://github.com/HarsukhSagri/EE798R_implementation1/tree/main/main_code) folder for training on 5-fold and 10-fold cross-validation strategies. Clone the github repo as given in [main_code](https://github.com/HarsukhSagri/EE798R_implementation1/tree/main/main_code) first and then make required changes in ser_model.py using this [file](https://github.com/HarsukhSagri/EE798R_implementation1/blob/main/models/ser_model.py) and train_ser.py using this [file](https://github.com/HarsukhSagri/EE798R_implementation1/blob/main/train_ser.py).
